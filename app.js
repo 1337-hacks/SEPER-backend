@@ -1,13 +1,12 @@
-app.js
-
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const path = require('path');
 require("./db/conn");
 
-app.use(cors());
-app.use(express.json());
+app.use(cors({ origin: true, credentials: true }));
+app.use(express.json({ extended: false }));
+app.get('/', (req, res) => res.send('Hello world!'));
 
 // API
 
