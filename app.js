@@ -10,6 +10,8 @@ app.use(cors());
 app.use(express.json());
 app.use(require("./routes/articles"));
 
+app.get('/', (req, res) => res.send('Hello world!'));
+
 // get driver connection
 const dbo = require("./db/conn");
  
