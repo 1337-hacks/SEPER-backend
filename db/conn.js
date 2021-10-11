@@ -1,26 +1,8 @@
-const { MongoClient } = require("mongodb");
-const Db = process.env.ATLAS_URI;
-const client = new MongoClient(Db, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
- 
-var _db;
- 
-module.exports = {
-  connectToServer: function (callback) {
-    client.connect(function (err, db) {
-      // Verify we have a good "db" object
-      if (db)
-      {
-        _db = db.db("SEPERDatabase");
-        console.log("Successfully connected to MongoDB."); 
-      }
-      return callback(err);
-         });
-  },
- 
-  getDb: function () {
-    return _db;
-  },
-};
+// Connect to MongoDB (Mongoose)
+
+const mongoose = require('mongoose');
+const connection = "mongodb+srv://elijah2:mongodbcoolpassword@seper-db.f19fc.mongodb.net/seper_database?retryWrites=true&w=majority";
+
+mongoose.connect(connection)
+    .then(() => console.log("Database Connected Successfully"))
+    .catch(err => console.log(err));
