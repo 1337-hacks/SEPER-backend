@@ -1,4 +1,4 @@
-// app.js
+app.js
 
 const express = require("express");
 const cors = require("cors");
@@ -13,11 +13,6 @@ app.use(express.json());
 
 const articles = require("./routes/articles");
 app.use("/routes/articles", articles);
-
-// app.use(express.static(path.join(__dirname, '../build')))
-// app.get('*', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../build'))
-// }) 
 
 // Start Server
 
